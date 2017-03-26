@@ -19,13 +19,13 @@
 	//USART1_send_buf(h);
 	//USART2_send_buf("uart2 hahah\r\n");
 	//USART2_send_buf(h);
-	USART1_send_buf("\r\n鍚冧釜澶ч钑塡r\n");
+	USART1_send_buf("\r\nAmerican huge bananar\n");
 	while(1)
 	{
 		if(USART1_RX_STA&0x8000)
 		{					   
-			len=USART1_RX_STA&0x3fff;//浠�涔堟儏鍐靛晩
-			USART1_send_buf("\r\n鐪熺殑鏈嶄簡\r\n");
+			len=USART1_RX_STA&0x3fff;
+			USART1_send_buf("\r\nMessage sent:\r\n");
 			USART1_send_buf((char *)USART1_RX_BUF);
 			//USART2_send_buf((char *)USART1_RX_BUF);
 			strcpy(USART1_RX_BUF,"\0");
@@ -33,7 +33,7 @@
 		}
 		else if(USART2_RX_STA&0x8000){
 			len=USART2_RX_STA&0x3fff;//
-			USART1_send_buf("\r\n浠�涔堢嫍灞佺紪鐮乗r\n");
+			USART1_send_buf("\r\nMessage got:r\n");
 			USART1_send_buf((char *)USART2_RX_BUF);
 			strcpy(USART2_RX_BUF,"\0");
 			USART2_RX_STA=0;
