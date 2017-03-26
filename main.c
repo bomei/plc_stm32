@@ -3,10 +3,6 @@
 #include "sys.h"
 #include "bolib.h"
 #include "string.h"
-//ALIENTEK Mini STM32开发板范例代码3
-//串口实验   
-//技术支持：www.openedv.com
-//广州市星翼电子科技有限公司
  int main(void)
  {	
 	u8 t;
@@ -23,13 +19,13 @@
 	//USART1_send_buf(h);
 	//USART2_send_buf("uart2 hahah\r\n");
 	//USART2_send_buf(h);
-	USART1_send_buf("\r\n鍚冧釜澶ч钑塡r\n");
+	USART1_send_buf("\r\n閸氬啩閲滄径褔顩鹃拺濉\n");
 	while(1)
 	{
 		if(USART1_RX_STA&0x8000)
 		{					   
-			len=USART1_RX_STA&0x3fff;//浠�涔堟儏鍐靛晩
-			USART1_send_buf("\r\n鐪熺殑鏈嶄簡\r\n");
+			len=USART1_RX_STA&0x3fff;//娴狅拷娑斿牊鍎忛崘闈涙櫓
+			USART1_send_buf("\r\n閻喓娈戦張宥勭啊\r\n");
 			USART1_send_buf((char *)USART1_RX_BUF);
 			//USART2_send_buf((char *)USART1_RX_BUF);
 			strcpy(USART1_RX_BUF,"\0");
@@ -37,7 +33,7 @@
 		}
 		else if(USART2_RX_STA&0x8000){
 			len=USART2_RX_STA&0x3fff;//
-			USART1_send_buf("\r\n浠�涔堢嫍灞佺紪鐮乗r\n");
+			USART1_send_buf("\r\n娴狅拷娑斿牏瀚嶇仦浣虹椽閻箺r\n");
 			USART1_send_buf((char *)USART2_RX_BUF);
 			strcpy(USART2_RX_BUF,"\0");
 			USART2_RX_STA=0;
